@@ -1,0 +1,33 @@
+@import "./reset.css";
+
+@font-face {
+  font-family: "Godo";
+  src: url("./assets/fonts/GodoM.woff2") format("woff2"),
+    url("./assets/fonts/GodoM.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Godo";
+  src: url("./assets/fonts/GodoB.woff2") format("woff2"),
+    url("./assets/fonts/GodoB.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Oswald:200,300,400,500,600,700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Godo", sans-serif;
+  min-width: 100vw;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
