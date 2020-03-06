@@ -1,7 +1,9 @@
 import React from "react";
+import { GradientBody } from "../../components";
+import styles from "./styles";
 
 const Main = () => {
-  return <div>Hello world</div>;
+  return <GradientBody>Body</GradientBody>;
 };
 
 export default Main;
