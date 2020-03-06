@@ -1,13 +1,14 @@
-import React, { FunctionComponent } from "react";
+import React, { ReactNode, CSSProperties } from "react";
 import styles from "./styles";
 
 type GradientBodyProps = {
-  styles?: Object;
+  children: ReactNode;
+  style?: CSSProperties;
 };
 
-const GradientBody: FunctionComponent<GradientBodyProps> = props => {
+const GradientBody = (props: GradientBodyProps) => {
   return (
-    <section style={{ ...styles.default, ...props.styles }}>
+    <section style={{ ...styles.default, ...props.style }}>
       {props.children}
     </section>
   );

@@ -7,5 +7,10 @@ export const themes = {
   },
   gradient: {
     main: "linear-gradient(to bottom, #ffd46c, #fdab26)"
+  },
+  fontSize: {
+    xsm: 10,
+    sm: 12,
+    default: 16
   }
 };
