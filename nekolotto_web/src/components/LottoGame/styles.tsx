@@ -48,19 +48,25 @@ const styles: { [key: string]: React.CSSProperties } = {
     alignItems: "center"
   },
   number: {
-    display: "block",
     position: "relative",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
     width: 12,
     height: 21,
     padding: 0,
-    paddingBottom: 1,
+    paddingBottom: 0.5,
     fontFamily: "Oswald",
+    fontSize: themes.fontSize.xs,
     whiteSpace: "nowrap",
     letterSpacing: -0.18,
     color: themes.color.brown,
     border: "none",
     cursor: "pointer",
     backgroundColor: "transparent"
+  },
+  inputCheckbox: {
+    display: "none"
   },
   numberBefore: {
     position: "absolute",
@@ -86,6 +92,15 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: 4,
     height: 10,
     backgroundColor: themes.color.black
+  },
+  checkedNum: {
+    position: "absolute",
+    width: 16,
+    height: 16,
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -60%)",
+    mixBlendMode: "multiply"
   }
 };
 

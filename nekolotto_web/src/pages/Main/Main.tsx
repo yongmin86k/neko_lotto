@@ -1,10 +1,18 @@
 import React, { useState, useRef } from "react";
+import { Form, FormSpy } from "react-final-form";
 import { GradientBody, Image, Footer, LotteryTicket } from "../../components";
 import styles from "./styles";
 
 const Main = () => {
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
   const [ticketWidth, setTicketWidth] = useState(null);
+  const [formTicket, setTicket] = useState({
+    gameA: [],
+    gameB: [],
+    gameC: [],
+    gameD: [],
+    gameE: []
+  });
 
   return (
     <>
@@ -26,21 +34,44 @@ const Main = () => {
         </div>
 
         <div style={styles.mainContainer}>
-          <div style={styles.ticketContainer}>
-            <div style={styles.ticketBox} ref={useRefTicketBox}>
-              <Image
-                src="/assets/images/lottery-ticket.png"
-                alt=""
-                style={styles.ticket}
-                onLoad={setTicketWidth}
-              />
+          <Form
+            onSubmit={values => {
+              console.log(values);
+            }}
+          >
+            {props => (
+              <form onSubmit={props.handleSubmit}>
+                <FormSpy
+                  subscription={{ values: true }}
+                  onChange={({ values }) => {
+                    if (values) {
+                      console.log(values);
+                    }
+                  }}
+                />
 
-              <LotteryTicket
-                boxRef={useRefTicketBox}
-                style={{ width: `${ticketWidth}px` }}
-              />
-            </div>
-          </div>
+                <div style={styles.ticketContainer}>
+                  <div style={styles.ticketBox} ref={useRefTicketBox}>
+                    <Image
+                      src="/assets/images/lottery-ticket.png"
+                      alt=""
+                      style={styles.ticket}
+                      onLoad={setTicketWidth}
+                    />
+
+                    <LotteryTicket
+                      boxRef={useRefTicketBox}
+                      style={{ width: `${ticketWidth}px` }}
+                    />
+                  </div>
+                </div>
+
+                <div style={styles.btnSubmitContinaer}>
+                  <button type="submit">check</button>
+                </div>
+              </form>
+            )}
+          </Form>
         </div>
       </GradientBody>
 

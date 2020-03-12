@@ -1,4 +1,6 @@
 import React from "react";
+import { Field } from "react-final-form";
+import { Image } from "../../components";
 import styles from "./styles";
 
 type Props = {
@@ -19,15 +21,48 @@ const LottoGame = ({ game }: Props) => {
         <div style={styles.gameBox}>
           {maxNumber.map((_, index) => {
             return (
-              <button
-                id={`${game}_number_${index}`}
+              <Field
                 key={`${game}_number_${index}`}
-                style={styles.number}
+                name={`${game}_number_${index}`}
+                type="checkbox"
               >
-                <p style={styles.numberBefore} />
-                {index + 1}
-                <p style={styles.numberAfter} />
-              </button>
+                {props => {
+                  const isChecked = props.input.checked;
+
+                  return !isChecked ? (
+                    <label style={styles.number}>
+                      <p style={styles.numberBefore} />
+                      <p style={styles.numberAfter} />
+                      <p>{index + 1}</p>
+                      <input
+                        {...props.input}
+                        type="checkbox"
+                        name={`${game}_number_${index}`}
+                        value={`${game}_number_${index}`}
+                        style={styles.inputCheckbox}
+                      />
+                    </label>
+                  ) : (
+                    <label style={styles.number}>
+                      <p style={styles.numberBefore} />
+                      <p style={styles.numberAfter} />
+                      <p>{index + 1}</p>
+                      <Image
+                        src="/assets/images/ic-toe.png"
+                        alt=""
+                        style={styles.checkedNum}
+                      />
+                      <input
+                        {...props.input}
+                        type="checkbox"
+                        name={`${game}_number_${index}`}
+                        value={`${game}_number_${index}`}
+                        style={styles.inputCheckbox}
+                      />
+                    </label>
+                  );
+                }}
+              </Field>
             );
           })}
         </div>

@@ -64,6 +64,10 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "auto",
     height: 416,
     boxSizing: "content-box"
+  },
+  btnSubmitContinaer: {
+    display: "flex",
+    justifyContent: "center"
   }
 };
 
