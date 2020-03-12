@@ -42,6 +42,28 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: "bold",
     color: themes.color.yellow,
     boxShadow: `0 4px 4px 0 rgba(194, 143, 20, 0.52)`
+  },
+  mainContainer: {
+    width: "100vw",
+    overflow: "hidden",
+    padding: `36px 0`
+  },
+  ticketContainer: {
+    overflowX: "scroll",
+    filter: "drop-shadow(0 12px 40px rgba(128, 79, 0, 0.36))"
+  },
+  ticketBox: {
+    position: "relative",
+    padding: `0 16px`
+  },
+  ticket: {
+    position: "relative",
+    padding: `0 16px`,
+    paddingLeft: 0,
+    paddingBottom: 44,
+    width: "auto",
+    height: 416,
+    boxSizing: "content-box"
   }
 };
 

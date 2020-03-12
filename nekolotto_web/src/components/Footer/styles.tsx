@@ -17,7 +17,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginRight: 24
   },
   caption: {
-    fontSize: themes.fontSize.xm,
+    fontSize: themes.fontSize.xs,
     color: themes.color.grey
   }
 };
