@@ -11,9 +11,5 @@ export const formatLottoNum = (numArr: AnyObject) => {
     { gameA: [], gameB: [], gameC: [], gameD: [], gameE: [] }
   );
 
-  Object.keys(gameObj).forEach(game => {
-    gameObj[game].sort((a: number, b: number) => a - b);
-  });
-
   return gameObj;
 };
