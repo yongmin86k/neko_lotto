@@ -5,15 +5,30 @@ import {
   Image,
   Footer,
   LotteryTicket,
-  LottoGame
+  LottoGame,
+  WarningOneBtn
 } from "../../components";
 import styles from "./styles";
 import { formatLottoNum } from "../../lib/formatLottoNum";
 
 const Main = () => {
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
-
   const [ticketWidth, setTicketWidth] = useState(null);
+
+  const [isLottoGame, setLottoGame] = useState<{
+    [key: string]: number[];
+    gameA: number[];
+    gameB: number[];
+    gameC: number[];
+    gameD: number[];
+    gameE: number[];
+  }>({
+    gameA: [],
+    gameB: [],
+    gameC: [],
+    gameD: [],
+    gameE: []
+  });
 
   const [isLastNumber, setLastNumber] = useState<{
     [key: string]: number | null;
@@ -25,8 +40,17 @@ const Main = () => {
     gameE: null
   });
 
+  const [openModal, toggleModal] = useState(false);
+
   const CompLottoGame = (game: string) => (
-    <LottoGame isLastNumber={isLastNumber} game={game} />
+    <LottoGame
+      isLottoGame={isLottoGame}
+      setLottoGame={setLottoGame}
+      isLastNumber={isLastNumber}
+      setLastNumber={setLastNumber}
+      game={game}
+      toggleModal={toggleModal}
+    />
   );
 
   return (
@@ -71,33 +95,9 @@ const Main = () => {
                       const newValue = Object.keys(values).filter(key => {
                         return values[key] === true;
                       });
-
                       const formatValues = formatLottoNum(newValue);
 
-                      Object.keys(formatValues).forEach(key => {
-                        const gameType = key;
-                        const lastNumbers =
-                          formatValues[gameType][
-                            formatValues[gameType].length - 1
-                          ];
-
-                        if (formatValues[gameType].length === 7) {
-                          setLastNumber({
-                            ...isLastNumber,
-                            [gameType]: lastNumbers
-                          });
-                        }
-
-                        if (
-                          formatValues[gameType].length < 7 &&
-                          isLastNumber[gameType]
-                        ) {
-                          setLastNumber({
-                            ...isLastNumber,
-                            [gameType]: null
-                          });
-                        }
-                      });
+                      // console.log(isLottoGame);
                     }
                   }}
                 />
@@ -131,6 +131,8 @@ const Main = () => {
       </GradientBody>
 
       <Footer />
+
+      {openModal && <WarningOneBtn toggleModal={toggleModal} />}
     </>
   );
 };

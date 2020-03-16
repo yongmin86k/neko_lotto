@@ -4,11 +4,22 @@ import { Image } from "../../components";
 import styles from "./styles";
 
 type Props = {
-  game: string;
+  isLottoGame: AnyObject;
+  setLottoGame: Function;
   isLastNumber: AnyObject;
+  setLastNumber: Function;
+  game: string;
+  toggleModal: Function;
 };
 
-const LottoGame = ({ game, isLastNumber }: Props) => {
+const LottoGame = ({
+  game,
+  isLottoGame,
+  setLottoGame,
+  isLastNumber,
+  setLastNumber,
+  toggleModal
+}: Props) => {
   const maxNumber = Array.from(Array(50).keys());
   const refCheckBox = useRef<HTMLInputElement>(null!);
 
@@ -35,9 +46,49 @@ const LottoGame = ({ game, isLastNumber }: Props) => {
                       style={styles.number}
                       onClick={e => {
                         const gameType = `game${game.toUpperCase()}`;
+                        const curGameState = isLottoGame[gameType];
 
                         if (isLastNumber[gameType] && !isChecked) {
                           e.preventDefault();
+                          toggleModal(true);
+                        }
+
+                        if (!isChecked && curGameState.length === 7) {
+                          e.preventDefault();
+
+                          setLastNumber({
+                            ...isLastNumber,
+                            [gameType]: lottoNumber
+                          });
+                          return;
+                        }
+
+                        if (
+                          !isChecked &&
+                          curGameState[curGameState.length - 1] !== lottoNumber
+                        ) {
+                          const newLottoGame = {
+                            ...isLottoGame
+                          };
+
+                          newLottoGame[gameType].push(lottoNumber);
+                          setLottoGame(newLottoGame);
+                        }
+
+                        if (isChecked) {
+                          const newGameNumbers = curGameState.filter(
+                            (num: number) => {
+                              return num !== lottoNumber;
+                            }
+                          );
+
+                          const newLottoGame = {
+                            ...isLottoGame,
+                            [gameType]: newGameNumbers
+                          };
+
+                          setLottoGame(newLottoGame);
+                          setLastNumber({ ...isLastNumber, [gameType]: null });
                         }
                       }}
                     >
