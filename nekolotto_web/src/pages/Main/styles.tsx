@@ -68,6 +68,17 @@ const styles: { [key: string]: React.CSSProperties } = {
   btnSubmitContinaer: {
     display: "flex",
     justifyContent: "center"
+  },
+  btnSubmit: {
+    width: 148,
+    height: 48,
+    border: "unset",
+    borderRadius: 12,
+    backgroundColor: themes.color.scarlet,
+    fontSize: themes.fontSize.default,
+    fontWeight: "bold",
+    color: "white",
+    boxShadow: "0 4px 4px 0 rgba(194, 143, 20, 0.52)"
   }
 };
 

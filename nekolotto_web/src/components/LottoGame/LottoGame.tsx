@@ -37,7 +37,6 @@ const LottoGame = ({ game, isLastNumber }: Props) => {
                         const gameType = `game${game.toUpperCase()}`;
 
                         if (isLastNumber[gameType] && !isChecked) {
-                          console.log(isLastNumber);
                           e.preventDefault();
                         }
                       }}

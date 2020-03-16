@@ -120,7 +120,9 @@ const Main = () => {
                 </div>
 
                 <div style={styles.btnSubmitContinaer}>
-                  <button type="submit">check</button>
+                  <button type="submit" style={styles.btnSubmit}>
+                    Check
+                  </button>
                 </div>
               </form>
             )}
