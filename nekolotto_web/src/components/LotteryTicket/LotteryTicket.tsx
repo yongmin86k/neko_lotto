@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, CSSProperties } from "react";
 import styles from "./styles";
-import { Image, LottoGame } from "../../components";
+import { Image } from "../../components";
 
 type Props = {
+  CompLottoGame: Function;
   boxRef: any;
-  style?: React.CSSProperties;
+  style?: CSSProperties;
 };
 
-const LotteryTicket = ({ boxRef, style }: Props) => {
+const LotteryTicket = ({ boxRef, style, CompLottoGame }: Props) => {
   const [offsetLeft, setLeft] = useState(null);
 
   useEffect(() => {
@@ -92,11 +93,12 @@ const LotteryTicket = ({ boxRef, style }: Props) => {
           </p>
 
           <div style={styles.gameContainer}>
-            <LottoGame game="a" />
-            <LottoGame game="b" />
-            <LottoGame game="c" />
-            <LottoGame game="d" />
-            <LottoGame game="e" />
+            {CompLottoGame("a")}
+            {CompLottoGame("b")}
+            {CompLottoGame("c")}
+            {CompLottoGame("d")}
+            {CompLottoGame("e")}
+
             <p style={styles.rotateText}>
               You need luck every second of your life, you don’t have to rely on
               it, but you have to have it, because if you don’t have luck, your

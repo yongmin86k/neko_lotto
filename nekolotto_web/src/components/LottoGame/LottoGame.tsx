@@ -1,14 +1,16 @@
-import React from "react";
-import { Field } from "react-final-form";
+import React, { useRef } from "react";
+import { Field, AnyObject } from "react-final-form";
 import { Image } from "../../components";
 import styles from "./styles";
 
 type Props = {
   game: string;
+  isLastNumber: AnyObject;
 };
 
-const LottoGame = ({ game }: Props) => {
+const LottoGame = ({ game, isLastNumber }: Props) => {
   const maxNumber = Array.from(Array(50).keys());
+  const refCheckBox = useRef<HTMLInputElement>(null!);
 
   return (
     <div style={styles.gameContainer}>
@@ -20,44 +22,43 @@ const LottoGame = ({ game }: Props) => {
 
         <div style={styles.gameBox}>
           {maxNumber.map((_, index) => {
+            const lottoNumber = index + 1;
+            const curNumber = `${game}_number_${lottoNumber}`;
+
             return (
-              <Field
-                key={`${game}_number_${index}`}
-                name={`${game}_number_${index}`}
-                type="checkbox"
-              >
+              <Field key={curNumber} name={curNumber} type="checkbox">
                 {props => {
                   const isChecked = props.input.checked;
 
-                  return !isChecked ? (
-                    <label style={styles.number}>
+                  return (
+                    <label
+                      style={styles.number}
+                      onClick={e => {
+                        const gameType = `game${game.toUpperCase()}`;
+
+                        if (isLastNumber[gameType] && !isChecked) {
+                          console.log(isLastNumber);
+                          e.preventDefault();
+                        }
+                      }}
+                    >
                       <p style={styles.numberBefore} />
                       <p style={styles.numberAfter} />
-                      <p>{index + 1}</p>
+                      <p>{lottoNumber}</p>
+                      {isChecked && (
+                        <Image
+                          src="/assets/images/ic-toe.png"
+                          alt=""
+                          style={styles.checkedNum}
+                        />
+                      )}
                       <input
                         {...props.input}
                         type="checkbox"
-                        name={`${game}_number_${index}`}
-                        value={`${game}_number_${index}`}
+                        name={curNumber}
+                        value={curNumber}
                         style={styles.inputCheckbox}
-                      />
-                    </label>
-                  ) : (
-                    <label style={styles.number}>
-                      <p style={styles.numberBefore} />
-                      <p style={styles.numberAfter} />
-                      <p>{index + 1}</p>
-                      <Image
-                        src="/assets/images/ic-toe.png"
-                        alt=""
-                        style={styles.checkedNum}
-                      />
-                      <input
-                        {...props.input}
-                        type="checkbox"
-                        name={`${game}_number_${index}`}
-                        value={`${game}_number_${index}`}
-                        style={styles.inputCheckbox}
+                        ref={refCheckBox}
                       />
                     </label>
                   );

@@ -1,18 +1,33 @@
 import React, { useState, useRef } from "react";
 import { Form, FormSpy } from "react-final-form";
-import { GradientBody, Image, Footer, LotteryTicket } from "../../components";
+import {
+  GradientBody,
+  Image,
+  Footer,
+  LotteryTicket,
+  LottoGame
+} from "../../components";
 import styles from "./styles";
+import { formatLottoNum } from "../../lib/formatLottoNum";
 
 const Main = () => {
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
+
   const [ticketWidth, setTicketWidth] = useState(null);
-  const [formTicket, setTicket] = useState({
-    gameA: [],
-    gameB: [],
-    gameC: [],
-    gameD: [],
-    gameE: []
+
+  const [isLastNumber, setLastNumber] = useState<{
+    [key: string]: number | null;
+  }>({
+    gameA: null,
+    gameB: null,
+    gameC: null,
+    gameD: null,
+    gameE: null
   });
+
+  const CompLottoGame = (game: string) => (
+    <LottoGame isLastNumber={isLastNumber} game={game} />
+  );
 
   return (
     <>
@@ -36,7 +51,15 @@ const Main = () => {
         <div style={styles.mainContainer}>
           <Form
             onSubmit={values => {
-              console.log(values);
+              if (values) {
+                const newValue = Object.keys(values).filter(key => {
+                  return values[key] === true;
+                });
+
+                const formatValues = formatLottoNum(newValue);
+
+                console.log(formatValues);
+              }
             }}
           >
             {props => (
@@ -45,7 +68,36 @@ const Main = () => {
                   subscription={{ values: true }}
                   onChange={({ values }) => {
                     if (values) {
-                      console.log(values);
+                      const newValue = Object.keys(values).filter(key => {
+                        return values[key] === true;
+                      });
+
+                      const formatValues = formatLottoNum(newValue);
+
+                      Object.keys(formatValues).forEach(key => {
+                        const gameType = key;
+                        const lastNumbers =
+                          formatValues[gameType][
+                            formatValues[gameType].length - 1
+                          ];
+
+                        if (formatValues[gameType].length === 7) {
+                          setLastNumber({
+                            ...isLastNumber,
+                            [gameType]: lastNumbers
+                          });
+                        }
+
+                        if (
+                          formatValues[gameType].length < 7 &&
+                          isLastNumber[gameType]
+                        ) {
+                          setLastNumber({
+                            ...isLastNumber,
+                            [gameType]: null
+                          });
+                        }
+                      });
                     }
                   }}
                 />
@@ -60,6 +112,7 @@ const Main = () => {
                     />
 
                     <LotteryTicket
+                      CompLottoGame={CompLottoGame}
                       boxRef={useRefTicketBox}
                       style={{ width: `${ticketWidth}px` }}
                     />
