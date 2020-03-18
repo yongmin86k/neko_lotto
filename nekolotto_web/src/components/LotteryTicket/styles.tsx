@@ -60,6 +60,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     lineHeight: "24px",
     cursor: "pointer"
   },
+  datePara: {
+    whiteSpace: "nowrap",
+    overflow: "hidden",
+    textOverflow: "ellipsis"
+  },
   listBox: {
     height: "auto"
   },

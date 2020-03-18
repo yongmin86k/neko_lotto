@@ -60,7 +60,9 @@ const LotteryTicket = ({
               toggleDateForm(true);
             }}
           >
-            <p>{moment(checkDate).format("MMMM D, YYYY")}</p>
+            <p style={styles.datePara}>
+              {moment(checkDate).format("MMMM D, YYYY")}
+            </p>
 
             <Image
               src="/assets/images/calendar.png"

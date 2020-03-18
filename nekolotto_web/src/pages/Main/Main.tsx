@@ -129,8 +129,6 @@ const Main = () => {
         </div>
       </GradientBody>
 
-      <Footer />
-
       {openModal && <WarningOneBtn toggleModal={toggleModal} />}
       {showDateForm && (
         <DateForm

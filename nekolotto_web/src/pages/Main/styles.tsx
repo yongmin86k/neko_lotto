@@ -50,7 +50,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   ticketContainer: {
     overflowX: "scroll",
-    filter: "drop-shadow(0 12px 40px rgba(128, 79, 0, 0.36))"
+    filter: "drop-shadow(rgba(128, 79, 0, 0.36) 0 8px 24px)"
   },
   ticketBox: {
     position: "relative",

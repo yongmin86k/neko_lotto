@@ -1,13 +1,18 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import { Main } from "../pages";
+import { Main, Result } from "../pages";
+import { Footer } from "../components";
 
 const Routes = () => {
   return (
-    <Switch>
-      <Route exact path="/" component={Main} />
-      <Redirect from="*" to="/" />
-    </Switch>
+    <>
+      <Switch>
+        <Route exact path="/" component={Main} />
+        <Route exact path="/result" component={Result} />
+        <Redirect from="*" to="/" />
+      </Switch>
+      <Footer />
+    </>
   );
 };
 
