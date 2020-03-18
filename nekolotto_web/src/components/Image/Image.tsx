@@ -5,7 +5,7 @@ type ImageProps = {
   src: string;
   style?: CSSProperties;
   ref?: Ref<HTMLImageElement>;
-  onLoad?: Function;
+  [key: string]: any;
 };
 
 const Image = forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
@@ -14,15 +14,12 @@ const Image = forwardRef<HTMLImageElement, ImageProps>((props, ref) => {
 
   return (
     <img
+      {...props}
       src={props.src}
       alt={props.alt}
       srcSet={`${res2x} 2x, ${res3x} 3x`}
       style={{ display: "block", ...props.style }}
       ref={ref}
-      onLoad={e => {
-        const imageTarget = e.target as HTMLImageElement;
-        props.onLoad && props.onLoad(e.target && imageTarget.width);
-      }}
     />
   );
 });

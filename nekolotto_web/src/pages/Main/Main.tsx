@@ -1,10 +1,10 @@
 import React, { useState, useRef } from "react";
 import { Form, FormSpy } from "react-final-form";
+import { Link } from "react-router-dom";
 import {
   DateForm,
   GradientBody,
   Image,
-  Footer,
   LotteryTicket,
   LottoGame,
   WarningOneBtn
@@ -15,7 +15,7 @@ import { lastDrawDay } from "../../lib/lottoDateHelper";
 
 const Main = () => {
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
-  const [ticketWidth, setTicketWidth] = useState(null);
+  const [ticketWidth, setTicketWidth] = useState<number | null>(null);
   const [showDateForm, toggleDateForm] = useState(false);
 
   const [isLottoGame, setLottoGame] = useState<{
@@ -105,7 +105,11 @@ const Main = () => {
                       src="/assets/images/lottery-ticket.png"
                       alt=""
                       style={styles.ticket}
-                      onLoad={setTicketWidth}
+                      onLoad={(e: any) => {
+                        const imageTarget = e.target as HTMLImageElement;
+                        setTicketWidth &&
+                          setTicketWidth(e.target && imageTarget.width);
+                      }}
                     />
 
                     <LotteryTicket
@@ -119,9 +123,18 @@ const Main = () => {
                 </div>
 
                 <div style={styles.btnSubmitContinaer}>
-                  <button type="submit" style={styles.btnSubmit}>
-                    Check
-                  </button>
+                  <Link
+                    to={{
+                      pathname: "/result"
+                      // search: "?sort=name",
+                      // hash: "#the-hash",
+                      // state: { fromDashboard: true }
+                    }}
+                  >
+                    <button type="submit" style={styles.btnSubmit}>
+                      Check
+                    </button>
+                  </Link>
                 </div>
               </form>
             )}
