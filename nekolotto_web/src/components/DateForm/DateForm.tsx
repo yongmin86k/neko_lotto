@@ -31,7 +31,7 @@ const DateForm = ({ checkDate, setCheckDate, toggleDateForm }: Props) => {
       id="ScreenModal"
       style={styles.modal}
       onClick={(e: React.MouseEvent<HTMLElement>) => {
-        if ((e.target as any).id === "ScreenModal") {
+        if ((e.target as HTMLDivElement).id === "ScreenModal") {
           toggleDateForm(false);
         }
 
