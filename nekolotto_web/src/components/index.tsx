@@ -1,3 +1,4 @@
+export { default as DateForm } from "./DateForm";
 export { default as GradientBody } from "./GradientBody";
 export { default as Image } from "./Image";
 export { default as LotteryTicket } from "./LotteryTicket";

@@ -50,11 +50,15 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   dateBox: {
     justifyContent: "space-between",
-    height: 24,
-    padding: `0 4px 0 8px`,
+    width: 122,
+    height: 26,
+    padding: `0 4px 1px 8px`,
+    backgroundColor: "unset",
     fontFamily: "Oswald",
     fontSize: themes.fontSize.sm,
-    color: themes.color.brown
+    color: themes.color.brown,
+    lineHeight: "24px",
+    cursor: "pointer"
   },
   listBox: {
     height: "auto"

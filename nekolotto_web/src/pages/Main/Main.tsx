@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Form, FormSpy } from "react-final-form";
 import {
+  DateForm,
   GradientBody,
   Image,
   Footer,
@@ -10,10 +11,12 @@ import {
 } from "../../components";
 import styles from "./styles";
 import { formatLottoNum } from "../../lib/formatLottoNum";
+import { lastDrawDay } from "../../lib/lottoDateHelper";
 
 const Main = () => {
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
   const [ticketWidth, setTicketWidth] = useState(null);
+  const [showDateForm, toggleDateForm] = useState(false);
 
   const [isLottoGame, setLottoGame] = useState<{
     [key: string]: number[];
@@ -41,6 +44,7 @@ const Main = () => {
   });
 
   const [openModal, toggleModal] = useState(false);
+  const [checkDate, setCheckDate] = useState<number>(lastDrawDay);
 
   const CompLottoGame = (game: string) => (
     <LottoGame
@@ -91,14 +95,7 @@ const Main = () => {
                 <FormSpy
                   subscription={{ values: true }}
                   onChange={({ values }) => {
-                    if (values) {
-                      const newValue = Object.keys(values).filter(key => {
-                        return values[key] === true;
-                      });
-                      const formatValues = formatLottoNum(newValue);
-
-                      // console.log(isLottoGame);
-                    }
+                    console.log(isLottoGame);
                   }}
                 />
 
@@ -115,6 +112,8 @@ const Main = () => {
                       CompLottoGame={CompLottoGame}
                       boxRef={useRefTicketBox}
                       style={{ width: `${ticketWidth}px` }}
+                      checkDate={checkDate}
+                      toggleDateForm={toggleDateForm}
                     />
                   </div>
                 </div>
@@ -133,6 +132,13 @@ const Main = () => {
       <Footer />
 
       {openModal && <WarningOneBtn toggleModal={toggleModal} />}
+      {showDateForm && (
+        <DateForm
+          checkDate={checkDate}
+          setCheckDate={setCheckDate}
+          toggleDateForm={toggleDateForm}
+        />
+      )}
     </>
   );
 };

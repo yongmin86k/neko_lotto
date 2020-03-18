@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./routes";
-import * as serviceWorker from "./serviceWorker";
+import "react-dates/initialize";
 import "./index.css";
+import * as serviceWorker from "./serviceWorker";
 
 const App = () => {
   return (

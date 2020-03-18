@@ -1,4 +1,5 @@
 import React, { useEffect, useState, CSSProperties } from "react";
+import moment from "moment";
 import styles from "./styles";
 import { Image } from "../../components";
 
@@ -6,9 +7,17 @@ type Props = {
   CompLottoGame: Function;
   boxRef: any;
   style?: CSSProperties;
+  checkDate: number;
+  toggleDateForm: Function;
 };
 
-const LotteryTicket = ({ boxRef, style, CompLottoGame }: Props) => {
+const LotteryTicket = ({
+  boxRef,
+  style,
+  CompLottoGame,
+  checkDate,
+  toggleDateForm
+}: Props) => {
   const [offsetLeft, setLeft] = useState(null);
 
   useEffect(() => {
@@ -44,15 +53,21 @@ const LotteryTicket = ({ boxRef, style, CompLottoGame }: Props) => {
 
         <div style={styles.section}>
           <h2 style={styles.sectionHeading}>[ Select Draw Date ]</h2>
-          <div style={{ ...styles.sectionBox, ...styles.dateBox }}>
-            <p>March 3, 2020</p>
+          <button
+            type="button"
+            style={{ ...styles.sectionBox, ...styles.dateBox }}
+            onClick={() => {
+              toggleDateForm(true);
+            }}
+          >
+            <p>{moment(checkDate).format("MMMM D, YYYY")}</p>
 
             <Image
               src="/assets/images/calendar.png"
               alt="Select Date"
               style={styles.icon}
             />
-          </div>
+          </button>
         </div>
 
         <div style={styles.section}>
