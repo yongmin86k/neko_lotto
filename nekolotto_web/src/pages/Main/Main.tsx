@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { Form, FormSpy } from "react-final-form";
-import { Link } from "react-router-dom";
 import {
   DateForm,
   GradientBody,
@@ -13,7 +12,11 @@ import styles from "./styles";
 import { formatLottoNum } from "../../lib/formatLottoNum";
 import { lastDrawDay } from "../../lib/lottoDateHelper";
 
-const Main = () => {
+type Props = {
+  [key: string]: any;
+};
+
+const Main = ({ navigation, contextProps }: Props) => {
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
   const [ticketWidth, setTicketWidth] = useState<number | null>(null);
   const [showDateForm, toggleDateForm] = useState(false);
@@ -86,7 +89,10 @@ const Main = () => {
 
                 const formatValues = formatLottoNum(newValue);
 
-                console.log(formatValues);
+                // console.log(formatValues);
+                contextProps.showLoading();
+
+                navigation.history.push("./result", []);
               }
             }}
           >
@@ -95,7 +101,7 @@ const Main = () => {
                 <FormSpy
                   subscription={{ values: true }}
                   onChange={({ values }) => {
-                    console.log(isLottoGame);
+                    // console.log(isLottoGame);
                   }}
                 />
 
@@ -123,18 +129,9 @@ const Main = () => {
                 </div>
 
                 <div style={styles.btnSubmitContinaer}>
-                  <Link
-                    to={{
-                      pathname: "/result"
-                      // search: "?sort=name",
-                      // hash: "#the-hash",
-                      // state: { fromDashboard: true }
-                    }}
-                  >
-                    <button type="submit" style={styles.btnSubmit}>
-                      Check
-                    </button>
-                  </Link>
+                  <button type="submit" style={styles.btnSubmit}>
+                    Check
+                  </button>
                 </div>
               </form>
             )}

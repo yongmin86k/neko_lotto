@@ -2,14 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./routes";
+import { LoadingProvider } from "./contexts/LoadingContext";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 
 const App = () => {
   return (
-    <Router>
-      <Routes />
-    </Router>
+    <LoadingProvider>
+      <Router>
+        <Routes />
+      </Router>
+    </LoadingProvider>
   );
 };
 

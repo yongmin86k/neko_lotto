@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import styles from "./styles";
 import { GradientBody, Image } from "../../components";
 
-const Result = () => {
+type Props = {
+  [key: string]: any;
+};
+
+const Result = ({ lottoResult }: Props) => {
   const [handsUp, setHands] = useState(false);
+
+  console.log(lottoResult);
 
   return (
     <GradientBody>
@@ -31,7 +37,11 @@ const Result = () => {
           }}
         />
 
-        <p style={styles.label}>Easiest way to check your lotteries</p>
+        <p style={styles.label}>
+          {lottoResult
+            ? `${lottoResult.drawDate} (No. ${lottoResult.drawNbr})`
+            : "Loading"}
+        </p>
       </div>
     </GradientBody>
   );
