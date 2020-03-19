@@ -142,7 +142,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     textAlign: "center",
     overflow: "hidden",
     whiteSpace: "nowrap",
-    borderBottom: `1px solid ${themes.color.brown}`
+    borderBottom: `1px solid ${themes.color.brown}`,
+    boxSizing: "content-box"
   },
   cellBrown: {
     borderBottom: `1px solid white`,
