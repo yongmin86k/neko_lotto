@@ -42,7 +42,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   gameBox: {
     padding: 8,
     display: "grid",
-    gridTemplateColumns: "repeat(5, 1fr)",
+    gridAutoFlow: "column",
+    gridTemplateRows: "repeat(10, 1fr)",
     gridGap: "9px 12px",
     justifyItems: "center",
     alignItems: "center"

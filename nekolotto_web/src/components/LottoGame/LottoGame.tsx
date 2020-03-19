@@ -22,58 +22,6 @@ const LottoGame = ({
 }: Props) => {
   const maxNumber = Array.from(Array(50).keys());
   const refCheckBox = useRef<HTMLInputElement>(null!);
-  const order = [
-    1,
-    11,
-    21,
-    31,
-    41,
-    2,
-    12,
-    22,
-    32,
-    42,
-    3,
-    13,
-    23,
-    33,
-    43,
-    4,
-    14,
-    24,
-    34,
-    44,
-    5,
-    15,
-    25,
-    35,
-    45,
-    6,
-    16,
-    26,
-    36,
-    46,
-    7,
-    17,
-    27,
-    37,
-    47,
-    8,
-    18,
-    28,
-    38,
-    48,
-    9,
-    19,
-    29,
-    39,
-    49,
-    10,
-    20,
-    30,
-    40,
-    50
-  ];
 
   return (
     <div style={styles.gameContainer}>
@@ -85,7 +33,7 @@ const LottoGame = ({
 
         <div style={styles.gameBox}>
           {maxNumber.map((_, index) => {
-            const lottoNumber = order[index];
+            const lottoNumber = index + 1;
             const curNumber = `${game}_number_${lottoNumber}`;
 
             return (
