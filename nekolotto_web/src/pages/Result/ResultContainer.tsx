@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import moment from "moment";
 import Result from "./Result";
 
 class ResultContainer extends Component<any> {
@@ -7,26 +8,31 @@ class ResultContainer extends Component<any> {
   };
 
   componentDidMount() {
-    const { contextProps } = this.props;
+    const { contextProps, routeProps } = this.props;
 
-    const proxyUrl = "https://cors-anywhere.herokuapp.com/";
-    const targetUrl =
-      "https://www.playnow.com/services2/lotto/draw/lmax/2020-03-17";
+    const checkDate = routeProps.location.state
+      ? moment(routeProps.location.state.date).format("YYYY-MM-DD")
+      : null;
 
-    fetch(proxyUrl + targetUrl)
-      .then(response => response.json())
-      .then(json => {
-        this.setState({ lottoResult: json });
+    if (checkDate) {
+      const proxyUrl = "https://cors-anywhere.herokuapp.com/";
+      const targetUrl = `https://www.playnow.com/services2/lotto/draw/lmax/${checkDate}`;
 
-        if (contextProps.isLoadingScreen) {
-          setTimeout(() => {
-            contextProps.hideLoading();
-          }, 400);
-        }
-      })
-      .catch(error => {
-        console.log(error);
-      });
+      fetch(proxyUrl + targetUrl)
+        .then(response => response.json())
+        .then(json => {
+          this.setState({ lottoResult: json });
+
+          if (contextProps.isLoadingScreen) {
+            setTimeout(() => {
+              contextProps.hideLoading();
+            }, 400);
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
   }
 
   render() {

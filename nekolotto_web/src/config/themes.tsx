@@ -13,7 +13,8 @@ export const themes = {
   fontSize: {
     xs: 10,
     sm: 12,
-    default: 16
+    default: 16,
+    title: 24
   },
   modalBg: {
     top: 0,

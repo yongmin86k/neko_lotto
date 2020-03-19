@@ -89,10 +89,12 @@ const Main = ({ navigation, contextProps }: Props) => {
 
                 const formatValues = formatLottoNum(newValue);
 
-                // console.log(formatValues);
                 contextProps.showLoading();
 
-                navigation.history.push("./result", []);
+                navigation.history.push("./result", {
+                  date: checkDate,
+                  lotteryInfo: formatValues
+                });
               }
             }}
           >
