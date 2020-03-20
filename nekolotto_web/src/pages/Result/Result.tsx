@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styles from "./styles";
-import { GradientBody, Image } from "../../components";
+import { GradientBody, Image, WinningNumbers } from "../../components";
 import { formatLottoResult } from "../../lib/formatLottoResult";
 import { formatThousandNumber } from "../../lib/formatThousandNumber";
 
@@ -53,62 +53,7 @@ const Result = ({ lottoResult, navigation }: Props) => {
 
       {lottoResult && (
         <>
-          <div style={styles.winningNumContainer}>
-            <div style={styles.winningNumBox}>
-              {lottoResult.drawNbrs.map((number: number, index: number) => {
-                if (index === 3) {
-                  return (
-                    <p
-                      key={`winninNumber_${index}`}
-                      style={{
-                        ...styles.winninNumber,
-                        ...styles.winninNumberLastChild
-                      }}
-                    >
-                      {number}
-                    </p>
-                  );
-                }
-                if (index < 3) {
-                  return (
-                    <p
-                      key={`winninNumber_${index}`}
-                      style={styles.winninNumber}
-                    >
-                      {number}
-                    </p>
-                  );
-                }
-                return false;
-              })}
-            </div>
-
-            <div
-              style={{
-                ...styles.winningNumBox,
-                ...styles.winningNumBoxLastChild
-              }}
-            >
-              {lottoResult.drawNbrs.map((number: number, index: number) => {
-                if (index > 3) {
-                  return (
-                    <p
-                      key={`winninNumber_${index}`}
-                      style={styles.winninNumber}
-                    >
-                      {number}
-                    </p>
-                  );
-                }
-                return false;
-              })}
-
-              <p style={{ ...styles.winninNumber, ...styles.bonusNumber }}>
-                {lottoResult.bonusNbr}
-                <span style={styles.textBonus}>Bonus</span>
-              </p>
-            </div>
-          </div>
+          <WinningNumbers lottoResult={lottoResult} />
 
           <div style={styles.overviewContainer}>
             <p style={styles.containerHeading}>[ Overview ]</p>
@@ -124,7 +69,7 @@ const Result = ({ lottoResult, navigation }: Props) => {
               {isResult &&
                 isResult.map((result: { [key: string]: any }, index) => {
                   const isLastChild = index === isResult.length - 1;
-
+                  console.log(result);
                   return (
                     <div
                       key={`tableContentBox_${result.game}`}
@@ -156,7 +101,9 @@ const Result = ({ lottoResult, navigation }: Props) => {
                               }
                         }
                       >
-                        {result.isWin ? result.rank.matches : "0/7"}
+                        {result.isWin
+                          ? result.rank.matches
+                          : `${result.result.length}/7`}
                       </div>
 
                       <div
