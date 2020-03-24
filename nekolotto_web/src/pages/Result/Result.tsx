@@ -9,6 +9,7 @@ import {
   GameResult
 } from "../../components";
 import { formatLottoResult } from "../../lib/formatLottoResult";
+import { Link } from "react-router-dom";
 
 type Props = {
   [key: string]: any;
@@ -34,7 +35,7 @@ const Result = ({ lottoResult, navigation }: Props) => {
   }
 
   return (
-    <GradientBody>
+    <GradientBody style={styles.mainContainer}>
       <div style={styles.logoContainer}>
         {handsUp ? (
           <Image
@@ -82,6 +83,12 @@ const Result = ({ lottoResult, navigation }: Props) => {
           />
         </>
       )}
+
+      <Link to="/" style={styles.link}>
+        <button style={styles.btnCheckAgain} type="button">
+          Check again
+        </button>
+      </Link>
     </GradientBody>
   );
 };

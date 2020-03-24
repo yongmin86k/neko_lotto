@@ -8,6 +8,9 @@ const mixinAlignCenter = {
 };
 
 const styles: { [key: string]: React.CSSProperties } = {
+  mainContainer: {
+    paddingBottom: 36
+  },
   logoContainer: {
     position: "relative",
     width: "100vw",
@@ -44,6 +47,24 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontWeight: "bold",
     color: themes.color.yellow,
     boxShadow: `0 4px 4px 0 rgba(194, 143, 20, 0.52)`
+  },
+  link: {
+    position: "relative",
+    display: "inline-block",
+    left: "50%",
+    transform: "translateX(-50%)"
+  },
+  btnCheckAgain: {
+    width: 148,
+    height: 48,
+    border: "unset",
+    borderRadius: 12,
+    backgroundColor: themes.color.scarlet,
+    fontSize: themes.fontSize.default,
+    fontWeight: "bold",
+    color: "white",
+    boxShadow: "0 4px 4px 0 rgba(194, 143, 20, 0.52)",
+    textDecoration: "none"
   }
 };
 
