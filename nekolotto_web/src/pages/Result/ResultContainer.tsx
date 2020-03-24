@@ -17,18 +17,20 @@ class ResultContainer extends Component<any> {
       const proxyUrl = "https://cors-anywhere.herokuapp.com/";
       const targetUrl = `https://www.playnow.com/services2/lotto/draw/lmax/${checkDate}`;
 
-      const requestHeader = new Headers();
-      requestHeader.set("Origin", "https://www.playnow.com");
-
-      fetch(proxyUrl + targetUrl, {
-        headers: {
-          "Content-Type": "application/json"
-        },
-        method: "GET",
-        mode: "cors",
-        credentials: "same-origin",
-        cache: "default"
-      })
+      fetch(
+        process.env.NODE_ENV || process.env.NODE_ENV === "development"
+          ? proxyUrl + targetUrl
+          : targetUrl,
+        {
+          headers: {
+            "Content-Type": "application/json"
+          },
+          method: "GET",
+          mode: "cors",
+          credentials: "same-origin",
+          cache: "default"
+        }
+      )
         .then(response => response.json())
         .then(json => {
           this.setState({ lottoResult: json });

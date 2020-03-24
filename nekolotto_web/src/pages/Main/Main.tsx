@@ -11,6 +11,7 @@ import {
 import styles from "./styles";
 import { formatLottoNum } from "../../lib/formatLottoNum";
 import { lastDrawDay } from "../../lib/lottoDateHelper";
+import { lottoNumChecker } from "../../lib/lottoNumChecker";
 
 type Props = {
   [key: string]: any;
@@ -20,7 +21,6 @@ const Main = ({ navigation, contextProps }: Props) => {
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
   const [ticketWidth, setTicketWidth] = useState<number | null>(null);
   const [showDateForm, toggleDateForm] = useState(false);
-
   const [isLottoGame, setLottoGame] = useState<{
     [key: string]: number[];
     gameA: number[];
@@ -35,7 +35,6 @@ const Main = ({ navigation, contextProps }: Props) => {
     gameD: [],
     gameE: []
   });
-
   const [isLastNumber, setLastNumber] = useState<{
     [key: string]: number | null;
   }>({
@@ -45,9 +44,10 @@ const Main = ({ navigation, contextProps }: Props) => {
     gameD: null,
     gameE: null
   });
-
   const [openModal, toggleModal] = useState(false);
   const [checkDate, setCheckDate] = useState<number>(lastDrawDay);
+  const [isError, setError] = useState(false);
+  const [isGameError, setGameError] = useState<string | null>(null);
 
   const CompLottoGame = (game: string) => (
     <LottoGame
@@ -89,6 +89,16 @@ const Main = ({ navigation, contextProps }: Props) => {
 
                 const formatValues = formatLottoNum(newValue);
 
+                const validate = lottoNumChecker(
+                  formatValues,
+                  setError,
+                  setGameError
+                );
+
+                if (validate) {
+                  return;
+                }
+
                 contextProps.showLoading();
 
                 navigation.history.push("./result", {
@@ -100,13 +110,6 @@ const Main = ({ navigation, contextProps }: Props) => {
           >
             {props => (
               <form onSubmit={props.handleSubmit}>
-                <FormSpy
-                  subscription={{ values: true }}
-                  onChange={({ values }) => {
-                    // console.log(isLottoGame);
-                  }}
-                />
-
                 <div style={styles.ticketContainer}>
                   <div style={styles.ticketBox} ref={useRefTicketBox}>
                     <Image
@@ -141,7 +144,20 @@ const Main = ({ navigation, contextProps }: Props) => {
         </div>
       </GradientBody>
 
-      {openModal && <WarningOneBtn toggleModal={toggleModal} />}
+      {openModal && (
+        <WarningOneBtn
+          toggleModal={toggleModal}
+          warnText="You can only select seven(7) numbers"
+        />
+      )}
+
+      {isError && (
+        <WarningOneBtn
+          toggleModal={setError}
+          warnText={`Please select seven(7) numbers to check "${isGameError}"`}
+        />
+      )}
+
       {showDateForm && (
         <DateForm
           checkDate={checkDate}

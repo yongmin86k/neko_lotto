@@ -4,9 +4,10 @@ import styles from "./styles";
 
 type Props = {
   toggleModal: Function;
+  warnText: string;
 };
 
-const WarningOneBtn = ({ toggleModal }: Props) => {
+const WarningOneBtn = ({ toggleModal, warnText }: Props) => {
   return (
     <div
       id="ScreenModal"
@@ -24,7 +25,7 @@ const WarningOneBtn = ({ toggleModal }: Props) => {
           <Image style={styles.icon} src="/assets/images/warning.png" alt="" />
         </div>
 
-        <p style={styles.text}>You can only select seven(7) numbers</p>
+        <p style={styles.text}>{warnText}</p>
 
         <button
           style={styles.btn}
