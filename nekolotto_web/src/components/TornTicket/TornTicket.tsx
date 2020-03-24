@@ -45,6 +45,13 @@ const TornTicket = ({ date, CompGameResult }: Props) => {
             {CompGameResult("c")}
             {CompGameResult("d")}
             {CompGameResult("e")}
+
+            <p style={styles.rotateText}>
+              You need luck every second of your life, you don’t have to rely on
+              it, but you have to have it, because if you don’t have luck, your
+              life is just black and white, but luck brings in every other
+              colour in your life!
+            </p>
           </div>
         </div>
       </div>

@@ -40,6 +40,22 @@ const styles: { [key: string]: React.CSSProperties } = {
     position: "relative",
     display: "flex",
     marginTop: 16
+  },
+  rotateText: {
+    position: "absolute",
+    top: 144,
+    right: -126,
+    width: 334,
+    height: 42,
+    fontFamily: "Oswald",
+    fontWeight: 300,
+    fontSize: themes.fontSize.xs,
+    color: themes.color.black,
+    lineHeight: 1.4,
+    letterSpacing: "-0.05px",
+    opacity: 0.8,
+    overflow: "visible",
+    transform: "rotate(-90deg)"
   }
 };
 
