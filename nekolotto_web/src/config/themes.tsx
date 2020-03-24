@@ -5,7 +5,8 @@ export const themes = {
     yellow: "#FFB500",
     brown: "#814607",
     scarlet: "#d25830",
-    blue: "#0074e4"
+    blue: "#0074e4",
+    red: "#d0021b"
   },
   gradient: {
     main: "linear-gradient(to bottom, #ffd46c, #fdab26)"

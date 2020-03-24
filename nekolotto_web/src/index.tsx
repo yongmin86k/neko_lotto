@@ -5,11 +5,13 @@ import Routes from "./routes";
 import { LoadingProvider } from "./contexts/LoadingContext";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
+import { ScrollToTop } from "./components";
 
 const App = () => {
   return (
     <LoadingProvider>
       <Router>
+        <ScrollToTop />
         <Routes />
       </Router>
     </LoadingProvider>

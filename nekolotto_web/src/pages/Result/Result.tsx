@@ -4,7 +4,9 @@ import {
   GradientBody,
   Image,
   WinningNumbers,
-  ResultOverview
+  ResultOverview,
+  TornTicket,
+  GameResult
 } from "../../components";
 import { formatLottoResult } from "../../lib/formatLottoResult";
 
@@ -15,11 +17,20 @@ type Props = {
 const Result = ({ lottoResult, navigation }: Props) => {
   const [handsUp, setHands] = useState(false);
   const [isResult, setResult] = useState<{}[] | null>(null);
+  const [lottoProps, setLottoProps] = useState<{ [key: string]: any } | null>(
+    null
+  );
+
+  const CompGameResult = (game: string) => (
+    <GameResult game={game} lottoProps={lottoProps} />
+  );
 
   if (navigation.location.state && lottoResult && !isResult) {
     const lotteryInfo = navigation.location.state.lotteryInfo;
 
     setResult(formatLottoResult(lotteryInfo, lottoResult));
+
+    setLottoProps({ lotteryInfo, lottoResult });
   }
 
   return (
@@ -60,6 +71,15 @@ const Result = ({ lottoResult, navigation }: Props) => {
           <WinningNumbers lottoResult={lottoResult} />
 
           <ResultOverview isResult={isResult} />
+
+          <TornTicket
+            date={
+              lottoResult
+                ? `${lottoResult.drawDate} (No. ${lottoResult.drawNbr})`
+                : "Loading"
+            }
+            CompGameResult={CompGameResult}
+          />
         </>
       )}
     </GradientBody>

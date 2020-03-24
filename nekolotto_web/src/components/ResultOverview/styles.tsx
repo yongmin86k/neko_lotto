@@ -15,7 +15,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: "16px 13px 14px 13px",
     marginLeft: 16,
     marginRight: 16,
-    marginBottom: 24,
+    // marginBottom: 24,
     boxShadow: `0 8px 36px 0 #c28f14`
   },
   containerHeading: {
