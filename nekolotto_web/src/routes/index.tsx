@@ -1,6 +1,6 @@
 import React from "react";
 import { Redirect, Route, Switch } from "react-router-dom";
-import LoadingContext from "../contexts/LoadingContext";
+import { LoadingContext } from "../contexts";
 import { Main, Result } from "../pages";
 import { Footer } from "../components";
 

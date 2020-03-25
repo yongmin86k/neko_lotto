@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./routes";
-import { LoadingProvider } from "./contexts/LoadingContext";
+import { LoadingProvider } from "./contexts";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { ScrollToTop } from "./components";
