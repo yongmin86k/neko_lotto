@@ -3,6 +3,17 @@ export const lottoNumChecker = (
   setError: Function,
   setGameError: Function
 ) => {
+  const noData = Object.keys(lottoData).every(key => {
+    const gameResult = lottoData[key];
+
+    return gameResult.length === 0;
+  });
+  if (noData) {
+    setGameError("Game A");
+    setError(true);
+    return true;
+  }
+
   let gameIndex: number = 0;
 
   const validate = Object.keys(lottoData).some((key, index) => {
