@@ -10,17 +10,17 @@ React/React Native web/mobile application with TypeScript to manage Canadian Lot
 
 [1. Web application](#web-application)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[- Date picker](#date-picker)
+&nbsp;&nbsp;&nbsp;&nbsp;[- Date picker](#--date-picker)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[- Lottery ticket checker](#lottery-ticket-checker)
+&nbsp;&nbsp;&nbsp;&nbsp;[- Lottery ticket checker](#--lottery-ticket-checker)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[- One button modal box](#one-button-modal-box)
+&nbsp;&nbsp;&nbsp;&nbsp;[- One button modal box](#--one-button-modal-box)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[- Loading context](#loading-context)
+&nbsp;&nbsp;&nbsp;&nbsp;[- Loading context](#--loading-context)
 
-&nbsp;&nbsp;&nbsp;&nbsp;[- Game result screen](#game-result-screen)
+&nbsp;&nbsp;&nbsp;&nbsp;[- Game result screen](#--game-result-screen)
 
-[2. Mobile application](#mobile-application)
+[2. Mobile application](#--mobile-application)
 
 &nbsp;
 
