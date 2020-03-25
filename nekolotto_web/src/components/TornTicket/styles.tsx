@@ -22,8 +22,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: "16px 0 0 13px"
   },
   title: {
-    fontWeight: "bold",
-    fontSize: themes.fontSize.sm
+    fontSize: themes.fontSize.sm,
+    fontWeight: "bold"
   },
   description: {
     marginTop: 4,

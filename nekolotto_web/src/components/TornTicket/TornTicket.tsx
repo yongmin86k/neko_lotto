@@ -30,9 +30,10 @@ const TornTicket = ({ date, CompGameResult }: Props) => {
         >
           <div style={styles.meta}>
             <h2 style={styles.title}>
-              [ Result for the draw on{" "}
-              {moment(date.split("(")[0], "MMM D, YYYY").format("dddd")},{" "}
-              {date.split("(")[0]} ]
+              {`[ Result for the draw on ${moment(
+                date.split("(")[0],
+                "MMM D, YYYY"
+              ).format("dddd")} ${date.split("(")[0]} ]`}
             </h2>
             <p style={styles.description}>
               - Scroll right to check more lotto games.

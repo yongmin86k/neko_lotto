@@ -37,7 +37,14 @@ const LotteryTicket = ({
       <div style={styles.leftContainer}>
         <div style={styles.section}>
           <h2 style={styles.sectionHeading}>[ Select Lottery ]</h2>
-          <div style={styles.sectionBox}>
+          <div
+            style={styles.sectionBox}
+            onClick={() => {
+              alert(
+                "Sorry for the limited service.\n\nOnly Lotto Max is available to check.\nWe will work for more Lottery results as soon as possible.\nThanks advance for your understanding."
+              );
+            }}
+          >
             <Image
               src="/assets/images/lotto-max.jpg"
               alt="Lotto Max"
