@@ -27,6 +27,7 @@ const Routes = () => {
               />
               <Redirect from="*" to="/" />
             </Switch>
+
             <Footer />
           </>
         );

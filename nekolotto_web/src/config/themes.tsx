@@ -24,5 +24,8 @@ export const themes = {
     height: "100vh",
     backdropFilter: "blur(1px)",
     backgroundColor: "rgba(0, 0, 0, 0.8)"
+  },
+  animation: {
+    default: "all 200ms ease-in-out"
   }
 };

@@ -2,19 +2,21 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Routes from "./routes";
-import { LoadingProvider } from "./contexts";
+import { LoadingProvider, MediaQueryProvider } from "./contexts";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { ScrollToTop } from "./components";
 
 const App = () => {
   return (
-    <LoadingProvider>
-      <Router>
-        <ScrollToTop />
-        <Routes />
-      </Router>
-    </LoadingProvider>
+    <MediaQueryProvider>
+      <LoadingProvider>
+        <Router>
+          <ScrollToTop />
+          <Routes />
+        </Router>
+      </LoadingProvider>
+    </MediaQueryProvider>
   );
 };
 
