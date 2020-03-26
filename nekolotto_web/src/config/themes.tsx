@@ -1,4 +1,9 @@
 export const themes = {
+  breakpoints: {
+    tablet: 768,
+    desktop: 992,
+    lgDesktop: 1200
+  },
   color: {
     black: "#322913",
     grey: "#9D998E",

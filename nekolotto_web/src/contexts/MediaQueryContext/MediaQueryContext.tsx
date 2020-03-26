@@ -1,4 +1,5 @@
 import React, { Component, createContext } from "react";
+import { themes } from "../../config/themes";
 
 const MediaQueryContext = createContext<{ [key: string]: any }>({});
 
@@ -6,9 +7,9 @@ export class MediaQueryProvider extends Component {
   readonly state = {
     screenWidth: window.screen.width,
     device:
-      window.screen.width < 768
+      window.screen.width < themes.breakpoints.tablet
         ? "mobile"
-        : window.screen.width < 992
+        : window.screen.width < themes.breakpoints.desktop
         ? "tablet"
         : "desktop"
   };
@@ -27,7 +28,12 @@ export class MediaQueryProvider extends Component {
     this.setState({ screenWidth: newWidth });
 
     this.setState({
-      device: newWidth < 768 ? "mobile" : newWidth < 992 ? "tablet" : "desktop"
+      device:
+        newWidth < themes.breakpoints.tablet
+          ? "mobile"
+          : newWidth < themes.breakpoints.desktop
+          ? "tablet"
+          : "desktop"
     });
   };
 
