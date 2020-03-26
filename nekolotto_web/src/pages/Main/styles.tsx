@@ -15,7 +15,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     backgroundSize: "1024px, contain, cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "50% 10%, bottom, center",
-    backgroundAttachment: "fixed, fixed, scroll"
+    backgroundAttachment: "fixed"
   },
   logoContainer: {
     position: "relative",
