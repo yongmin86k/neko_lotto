@@ -2,6 +2,20 @@ import React from "react";
 import { themes } from "../../config/themes";
 
 const styles: { [key: string]: React.CSSProperties } = {
+  bgTypeBottom: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100%",
+    backgroundImage: `
+      url(/assets/images/bg-01@2x.png), 
+      url(/assets/images/bg-02@2x.png),
+      url(/assets/images/bg-03@2x.png)`,
+    backgroundSize: "contain, contain, cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "50% 10%, bottom, center"
+  },
   logoContainer: {
     position: "relative",
     width: "100vw",

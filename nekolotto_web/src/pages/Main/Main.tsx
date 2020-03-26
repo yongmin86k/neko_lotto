@@ -64,7 +64,11 @@ const Main = ({ navigation, contextProps }: Props) => {
 
   return (
     <>
-      <GradientBody style={{ minHeight: windowScreen.height - 86 }}>
+      <GradientBody
+        style={{ position: "relative", minHeight: windowScreen.height - 86 }}
+      >
+        {device !== "mobile" && <div style={styles.bgTypeBottom} />}
+
         <div style={styles.logoContainer}>
           <Image
             src="/assets/images/abstract.png"
