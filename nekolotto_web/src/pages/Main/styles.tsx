@@ -12,9 +12,10 @@ const styles: { [key: string]: React.CSSProperties } = {
       url(/assets/images/bg-01@2x.png), 
       url(/assets/images/bg-02@2x.png),
       url(/assets/images/bg-03@2x.png)`,
-    backgroundSize: "contain, contain, cover",
+    backgroundSize: "1024px, contain, cover",
     backgroundRepeat: "no-repeat",
-    backgroundPosition: "50% 10%, bottom, center"
+    backgroundPosition: "50% 10%, bottom, center",
+    backgroundAttachment: "fixed, fixed, scroll"
   },
   logoContainer: {
     position: "relative",
@@ -61,6 +62,9 @@ const styles: { [key: string]: React.CSSProperties } = {
     width: "100vw",
     overflow: "hidden",
     padding: `36px 0`
+  },
+  desktopMainContainer: {
+    paddingBottom: 80
   },
   ticketContainer: {
     overflowX: "scroll",

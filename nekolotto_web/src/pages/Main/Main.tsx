@@ -85,7 +85,13 @@ const Main = ({ navigation, contextProps }: Props) => {
           <p style={styles.label}>Easiest way to check your lotteries</p>
         </div>
 
-        <div style={styles.mainContainer}>
+        <div
+          style={
+            device !== "mobile"
+              ? { ...styles.mainContainer, ...styles.desktopMainContainer }
+              : styles.mainContainer
+          }
+        >
           <Form
             onSubmit={values => {
               if (values) {
