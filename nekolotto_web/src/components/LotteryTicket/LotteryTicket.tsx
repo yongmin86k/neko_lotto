@@ -30,8 +30,8 @@ const LotteryTicket = ({
     <div
       style={{
         ...styles.lotteryContentContainer,
-        ...style,
-        left: offsetLeft!
+        left: offsetLeft!,
+        ...style
       }}
     >
       <div style={styles.leftContainer}>

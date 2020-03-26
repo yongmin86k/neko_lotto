@@ -127,7 +127,11 @@ const Main = ({ navigation, contextProps }: Props) => {
                     <Image
                       src="/assets/images/lottery-ticket.png"
                       alt=""
-                      style={styles.ticket}
+                      style={
+                        windowScreen.width < 932
+                          ? styles.ticket
+                          : { ...styles.ticket, ...styles.desktopTicket }
+                      }
                       onLoad={(e: any) => {
                         const imageTarget = e.target as HTMLImageElement;
                         setTicketWidth &&
@@ -137,8 +141,15 @@ const Main = ({ navigation, contextProps }: Props) => {
 
                     <LotteryTicket
                       CompLottoGame={CompLottoGame}
-                      boxRef={useRefTicketBox}
-                      style={{ width: `${ticketWidth}px` }}
+                      boxRef={windowScreen.width < 932 && useRefTicketBox}
+                      style={
+                        windowScreen.width < 932
+                          ? { width: `${ticketWidth}px` }
+                          : {
+                              width: `${ticketWidth}px`,
+                              ...styles.lotteryTicket
+                            }
+                      }
                       checkDate={checkDate}
                       toggleDateForm={toggleDateForm}
                     />

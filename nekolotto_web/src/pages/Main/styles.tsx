@@ -61,7 +61,8 @@ const styles: { [key: string]: React.CSSProperties } = {
   mainContainer: {
     width: "100vw",
     overflow: "hidden",
-    padding: `36px 0`
+    paddingTop: 36,
+    paddingBottom: 36
   },
   desktopMainContainer: {
     paddingBottom: 80
@@ -72,16 +73,23 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
   ticketBox: {
     position: "relative",
-    padding: `0 16px`
+    padding: "0 16px"
   },
   ticket: {
     position: "relative",
-    padding: `0 16px`,
-    paddingLeft: 0,
+    paddingRight: 16,
     paddingBottom: 44,
+    margin: "0 auto",
     width: "auto",
     height: 416,
     boxSizing: "content-box"
+  },
+  lotteryTicket: {
+    left: "50%",
+    transform: "translate(-50%)"
+  },
+  desktopTicket: {
+    paddingRight: 0
   },
   btnSubmitContinaer: {
     display: "flex",
