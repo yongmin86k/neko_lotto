@@ -7,7 +7,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     position: "fixed",
     display: "flex",
     alignItems: "center",
-    justifyContent: "center"
+    justifyContent: "center",
+    zIndex: 9999
   }
 };
 
