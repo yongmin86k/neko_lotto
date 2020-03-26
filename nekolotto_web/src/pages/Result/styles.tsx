@@ -52,7 +52,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     position: "relative",
     display: "inline-block",
     left: "50%",
-    transform: "translateX(-50%)"
+    transform: "translateX(-50%)",
+    zIndex: 9999
   },
   btnCheckAgain: {
     width: 148,

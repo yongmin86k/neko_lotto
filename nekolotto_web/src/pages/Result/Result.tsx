@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styles from "./styles";
 import {
   GradientBody,
@@ -10,12 +10,14 @@ import {
 } from "../../components";
 import { formatLottoResult } from "../../lib/formatLottoResult";
 import { Link } from "react-router-dom";
+import { MediaQueryContext } from "../../contexts";
 
 type Props = {
   [key: string]: any;
 };
 
 const Result = ({ lottoResult, navigation }: Props) => {
+  const { windowScreen, device } = useContext(MediaQueryContext);
   const [handsUp, setHands] = useState(false);
   const [isResult, setResult] = useState<{}[] | null>(null);
   const [lottoProps, setLottoProps] = useState<{ [key: string]: any } | null>(
@@ -35,7 +37,9 @@ const Result = ({ lottoResult, navigation }: Props) => {
   }
 
   return (
-    <GradientBody style={styles.mainContainer}>
+    <GradientBody
+      style={{ ...styles.mainContainer, minHeight: windowScreen.height - 86 }}
+    >
       <div style={styles.logoContainer}>
         {handsUp ? (
           <Image

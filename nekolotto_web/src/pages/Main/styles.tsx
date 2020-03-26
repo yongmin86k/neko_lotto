@@ -78,7 +78,8 @@ const styles: { [key: string]: React.CSSProperties } = {
     fontSize: themes.fontSize.default,
     fontWeight: "bold",
     color: "white",
-    boxShadow: "0 4px 4px 0 rgba(194, 143, 20, 0.52)"
+    boxShadow: "0 4px 4px 0 rgba(194, 143, 20, 0.52)",
+    zIndex: 9999
   }
 };
 
