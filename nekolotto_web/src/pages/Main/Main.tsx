@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useContext } from "react";
 import { Form } from "react-final-form";
 import {
   DateForm,
@@ -12,12 +12,14 @@ import styles from "./styles";
 import { formatLottoNum } from "../../lib/formatLottoNum";
 import { lastDrawDay } from "../../lib/lottoDateHelper";
 import { lottoNumChecker } from "../../lib/lottoNumChecker";
+import { MediaQueryContext } from "../../contexts";
 
 type Props = {
   [key: string]: any;
 };
 
 const Main = ({ navigation, contextProps }: Props) => {
+  const { windowScreen, device } = useContext(MediaQueryContext);
   const useRefTicketBox = useRef<HTMLDivElement>(null!);
   const [ticketWidth, setTicketWidth] = useState<number | null>(null);
   const [showDateForm, toggleDateForm] = useState(false);
@@ -62,7 +64,7 @@ const Main = ({ navigation, contextProps }: Props) => {
 
   return (
     <>
-      <GradientBody>
+      <GradientBody style={{ minHeight: windowScreen.height - 86 }}>
         <div style={styles.logoContainer}>
           <Image
             src="/assets/images/abstract.png"

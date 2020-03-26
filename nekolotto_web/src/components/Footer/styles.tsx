@@ -5,6 +5,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   footer: {
     position: "relative",
     width: "100vw",
+    height: 86,
     padding: `24px 12px 16px 12px`,
     backgroundColor: themes.color.black,
     fontSize: themes.fontSize.sm
