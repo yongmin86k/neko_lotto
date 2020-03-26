@@ -15,7 +15,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     alignItems: "center",
     justifyContent: "center",
     flexDirection: "column",
-    maxWidth: "64.8%",
+    maxWidth: 280,
     padding: "16px 14px",
     borderRadius: 12,
     backgroundColor: "white"
