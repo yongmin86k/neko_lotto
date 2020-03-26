@@ -5,7 +5,10 @@ const MediaQueryContext = createContext<{ [key: string]: any }>({});
 
 export class MediaQueryProvider extends Component {
   readonly state = {
-    screenWidth: window.screen.width,
+    windowScreen: {
+      width: window.screen.width,
+      height: window.screen.height
+    },
     device:
       window.screen.width < themes.breakpoints.tablet
         ? "mobile"
@@ -24,8 +27,9 @@ export class MediaQueryProvider extends Component {
 
   resizeHandler = () => {
     const newWidth = window.screen.width;
+    const newHeight = window.screen.height;
 
-    this.setState({ screenWidth: newWidth });
+    this.setState({ windowScreen: { width: newWidth, height: newHeight } });
 
     this.setState({
       device:
@@ -39,7 +43,12 @@ export class MediaQueryProvider extends Component {
 
   render() {
     return (
-      <MediaQueryContext.Provider value={{ device: this.state.device }}>
+      <MediaQueryContext.Provider
+        value={{
+          windowScreen: this.state.windowScreen,
+          device: this.state.device
+        }}
+      >
         {this.props.children}
       </MediaQueryContext.Provider>
     );
