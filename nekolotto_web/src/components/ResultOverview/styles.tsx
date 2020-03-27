@@ -10,13 +10,15 @@ const mixinTable = {
 
 const styles: { [key: string]: React.CSSProperties } = {
   overviewContainer: {
+    position: "relative",
     backgroundColor: "white",
     borderRadius: 12,
     padding: "16px 13px 14px 13px",
     marginLeft: 16,
     marginRight: 16,
-    // marginBottom: 24,
-    boxShadow: `0 8px 36px 0 #c28f14`
+    boxShadow: `0 8px 36px 0 #c28f14`,
+    maxWidth: 754,
+    margin: "0 auto"
   },
   containerHeading: {
     fontSize: themes.fontSize.sm,

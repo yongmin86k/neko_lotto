@@ -9,7 +9,26 @@ const mixinAlignCenter = {
 
 const styles: { [key: string]: React.CSSProperties } = {
   mainContainer: {
+    position: "relative",
     paddingBottom: 36
+  },
+  desktopMainContainer: {
+    paddingBottom: 80
+  },
+  bgTypeBottom: {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    width: "100vw",
+    height: "100%",
+    backgroundImage: `
+      url(/assets/images/bg-01@2x.png), 
+      url(/assets/images/bg-02@2x.png),
+      url(/assets/images/bg-03@2x.png)`,
+    backgroundSize: "1024px, contain, cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "50% 10%, bottom, center",
+    backgroundAttachment: "fixed"
   },
   logoContainer: {
     position: "relative",

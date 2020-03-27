@@ -38,8 +38,18 @@ const Result = ({ lottoResult, navigation }: Props) => {
 
   return (
     <GradientBody
-      style={{ ...styles.mainContainer, minHeight: windowScreen.height - 86 }}
+      style={
+        device !== "mobile"
+          ? {
+              ...styles.mainContainer,
+              ...styles.desktopMainContainer,
+              minHeight: windowScreen.height - 86
+            }
+          : { ...styles.mainContainer, minHeight: windowScreen.height - 86 }
+      }
     >
+      {device !== "mobile" && <div style={styles.bgTypeBottom} />}
+
       <div style={styles.logoContainer}>
         {handsUp ? (
           <Image

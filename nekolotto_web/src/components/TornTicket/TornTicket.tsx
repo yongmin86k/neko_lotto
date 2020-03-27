@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import moment from "moment";
 import { Image } from "../../components";
 import styles from "./styles";
+import { MediaQueryContext } from "../../contexts";
 
 type Props = {
   date: string;
@@ -9,6 +10,7 @@ type Props = {
 };
 
 const TornTicket = ({ date, CompGameResult }: Props) => {
+  const { windowScreen } = useContext(MediaQueryContext);
   const [isWidth, setWidth] = useState<number | null>(null);
   const [isLeft, setLeft] = useState<string>("16px");
 
@@ -16,7 +18,11 @@ const TornTicket = ({ date, CompGameResult }: Props) => {
     <div style={styles.container}>
       <div style={styles.scrollableBox}>
         <Image
-          style={styles.imgTicket}
+          style={
+            windowScreen.width < 932
+              ? styles.imgTicket
+              : { ...styles.imgTicket, ...styles.desktopImgTicket }
+          }
           src="/assets/images/lottery-ticket-torn.png"
           alt=""
           onLoad={(e: { [key: string]: HTMLImageElement }) => {
@@ -26,7 +32,15 @@ const TornTicket = ({ date, CompGameResult }: Props) => {
         />
 
         <div
-          style={{ ...styles.contentBox, width: `${isWidth}px`, left: isLeft }}
+          style={
+            windowScreen.width < 932
+              ? { ...styles.contentBox, width: `${isWidth}px`, left: isLeft }
+              : {
+                  ...styles.contentBox,
+                  ...styles.desktopContentBox,
+                  width: `${isWidth}px`
+                }
+          }
         >
           <div style={styles.meta}>
             <h2 style={styles.title}>

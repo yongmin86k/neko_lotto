@@ -16,10 +16,17 @@ const styles: { [key: string]: React.CSSProperties } = {
     padding: "0 16px 44px 16px",
     boxSizing: "content-box"
   },
+  desktopImgTicket: {
+    margin: "0 auto"
+  },
   contentBox: {
     position: "absolute",
     top: 0,
     padding: "16px 0 0 13px"
+  },
+  desktopContentBox: {
+    left: "50%",
+    transform: "translateX(-50%)"
   },
   title: {
     fontSize: themes.fontSize.sm,
