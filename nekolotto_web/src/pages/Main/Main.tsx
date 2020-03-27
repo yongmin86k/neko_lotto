@@ -8,11 +8,11 @@ import {
   LottoGame,
   WarningOneBtn
 } from "../../components";
-import styles from "./styles";
 import { formatLottoNum } from "../../lib/formatLottoNum";
 import { lastDrawDay } from "../../lib/lottoDateHelper";
 import { lottoNumChecker } from "../../lib/lottoNumChecker";
 import { MediaQueryContext } from "../../contexts";
+import styles from "./styles";
 
 type Props = {
   [key: string]: any;

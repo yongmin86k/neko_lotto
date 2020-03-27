@@ -19,7 +19,7 @@ const TornTicket = ({ date, CompGameResult }: Props) => {
       <div style={styles.scrollableBox}>
         <Image
           style={
-            windowScreen.width < 932
+            windowScreen.width < 786
               ? styles.imgTicket
               : { ...styles.imgTicket, ...styles.desktopImgTicket }
           }
@@ -33,7 +33,7 @@ const TornTicket = ({ date, CompGameResult }: Props) => {
 
         <div
           style={
-            windowScreen.width < 932
+            windowScreen.width < 786
               ? { ...styles.contentBox, width: `${isWidth}px`, left: isLeft }
               : {
                   ...styles.contentBox,

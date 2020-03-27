@@ -1,7 +1,8 @@
-import React, { useEffect, useState, CSSProperties } from "react";
+import React, { useEffect, useState, useContext, CSSProperties } from "react";
 import moment from "moment";
-import styles from "./styles";
 import { Image } from "../../components";
+import { MediaQueryContext } from "../../contexts";
+import styles from "./styles";
 
 type Props = {
   CompLottoGame: Function;
@@ -18,6 +19,7 @@ const LotteryTicket = ({
   checkDate,
   toggleDateForm
 }: Props) => {
+  const { windowScreen } = useContext(MediaQueryContext);
   const [offsetLeft, setLeft] = useState(null);
 
   useEffect(() => {
@@ -28,11 +30,18 @@ const LotteryTicket = ({
 
   return (
     <div
-      style={{
-        ...styles.lotteryContentContainer,
-        left: offsetLeft!,
-        ...style
-      }}
+      style={
+        windowScreen.width < 932
+          ? {
+              ...styles.lotteryContentContainer,
+              left: offsetLeft!,
+              ...style
+            }
+          : {
+              ...styles.lotteryContentContainer,
+              ...style
+            }
+      }
     >
       <div style={styles.leftContainer}>
         <div style={styles.section}>

@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import { formatThousandNumber } from "../../lib/formatThousandNumber";
+import { MediaQueryContext } from "../../contexts";
 import styles from "./styles";
 
 const ResultOverview = ({ isResult }: { [key: string]: any }) => {
+  const { windowScreen } = useContext(MediaQueryContext);
+
   return (
-    <div style={styles.overviewContainer}>
+    <div
+      style={
+        windowScreen.width < 786
+          ? styles.overviewContainer
+          : { ...styles.overviewContainer, ...styles.desktopOverviewContainer }
+      }
+    >
       <p style={styles.containerHeading}>[ Overview ]</p>
 
       <div style={styles.overviewTableHeader}>

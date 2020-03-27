@@ -6,13 +6,13 @@ const MediaQueryContext = createContext<{ [key: string]: any }>({});
 export class MediaQueryProvider extends Component {
   readonly state = {
     windowScreen: {
-      width: window.screen.width,
-      height: window.screen.height
+      width: window.innerWidth,
+      height: window.innerHeight
     },
     device:
-      window.screen.width < themes.breakpoints.tablet
+      window.innerWidth < themes.breakpoints.tablet
         ? "mobile"
-        : window.screen.width < themes.breakpoints.desktop
+        : window.innerWidth < themes.breakpoints.desktop
         ? "tablet"
         : "desktop"
   };
@@ -26,8 +26,8 @@ export class MediaQueryProvider extends Component {
   }
 
   resizeHandler = () => {
-    const newWidth = window.screen.width;
-    const newHeight = window.screen.height;
+    const newWidth = window.innerWidth;
+    const newHeight = window.innerHeight;
 
     this.setState({ windowScreen: { width: newWidth, height: newHeight } });
 

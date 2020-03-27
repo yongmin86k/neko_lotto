@@ -17,8 +17,11 @@ const styles: { [key: string]: React.CSSProperties } = {
     marginLeft: 16,
     marginRight: 16,
     boxShadow: `0 8px 36px 0 #c28f14`,
-    maxWidth: 754,
-    margin: "0 auto"
+    maxWidth: 754
+  },
+  desktopOverviewContainer: {
+    marginLeft: "auto",
+    marginRight: "auto"
   },
   containerHeading: {
     fontSize: themes.fontSize.sm,
