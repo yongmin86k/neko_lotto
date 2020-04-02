@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e08a63012150606546a3d89a74a3473",
+    "revision": "00d88b9a8802ce8109a801da522302c4",
     "url": "/neko_lotto/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/neko_lotto/static/css/2.b90ce945.chunk.css"
   },
   {
-    "revision": "c43329678b887f2af4ac",
+    "revision": "9093ad4bdeccaf069066",
     "url": "/neko_lotto/static/css/main.b8a98544.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/neko_lotto/static/js/2.44a130e3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c43329678b887f2af4ac",
-    "url": "/neko_lotto/static/js/main.232cc68a.chunk.js"
+    "revision": "9093ad4bdeccaf069066",
+    "url": "/neko_lotto/static/js/main.38bc3163.chunk.js"
   },
   {
     "revision": "d399d9bd7a7f1c2744b7",
