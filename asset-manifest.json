@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/neko_lotto/static/css/main.5e45bb0f.chunk.css",
-    "main.js": "/neko_lotto/static/js/main.4a2dca7d.chunk.js",
-    "main.js.map": "/neko_lotto/static/js/main.4a2dca7d.chunk.js.map",
+    "main.js": "/neko_lotto/static/js/main.cb6555e6.chunk.js",
+    "main.js.map": "/neko_lotto/static/js/main.cb6555e6.chunk.js.map",
     "runtime-main.js": "/neko_lotto/static/js/runtime-main.35bc5976.js",
     "runtime-main.js.map": "/neko_lotto/static/js/runtime-main.35bc5976.js.map",
     "static/css/2.b90ce945.chunk.css": "/neko_lotto/static/css/2.b90ce945.chunk.css",
     "static/js/2.44a130e3.chunk.js": "/neko_lotto/static/js/2.44a130e3.chunk.js",
     "static/js/2.44a130e3.chunk.js.map": "/neko_lotto/static/js/2.44a130e3.chunk.js.map",
     "index.html": "/neko_lotto/index.html",
-    "precache-manifest.721deb5e79e01153f46321b69d2997ca.js": "/neko_lotto/precache-manifest.721deb5e79e01153f46321b69d2997ca.js",
+    "precache-manifest.6db8f72753314e491b2cc42d6cdafb15.js": "/neko_lotto/precache-manifest.6db8f72753314e491b2cc42d6cdafb15.js",
     "service-worker.js": "/neko_lotto/service-worker.js",
     "static/css/2.b90ce945.chunk.css.map": "/neko_lotto/static/css/2.b90ce945.chunk.css.map",
     "static/css/main.5e45bb0f.chunk.css.map": "/neko_lotto/static/css/main.5e45bb0f.chunk.css.map",
@@ -20,6 +20,6 @@
     "static/css/2.b90ce945.chunk.css",
     "static/js/2.44a130e3.chunk.js",
     "static/css/main.5e45bb0f.chunk.css",
-    "static/js/main.4a2dca7d.chunk.js"
+    "static/js/main.cb6555e6.chunk.js"
   ]
 }
